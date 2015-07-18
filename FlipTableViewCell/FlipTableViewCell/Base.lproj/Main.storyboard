@@ -93,6 +93,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="flip" destination="8DO-vU-1rm" id="769-v9-QGb"/>
+                                            <outlet property="flipBack" destination="3eY-3v-shx" id="uSS-9n-jFC"/>
                                             <outlet property="flipView" destination="xtT-Z5-2Dr" id="z9D-t2-p5s"/>
                                             <outlet property="normalView" destination="9c5-Tj-RjC" id="lnc-N1-6hH"/>
                                         </connections>

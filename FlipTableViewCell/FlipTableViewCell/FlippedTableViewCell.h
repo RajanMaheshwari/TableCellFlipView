@@ -13,5 +13,6 @@
 - (IBAction)flip:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *flipView;
 @property (weak, nonatomic) IBOutlet UIView *normalView;
-
+@property (weak, nonatomic) IBOutlet UIButton *flip;
+@property (weak, nonatomic) IBOutlet UIButton *flipBack;
 @end

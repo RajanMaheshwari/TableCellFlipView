@@ -7,11 +7,16 @@
 //
 
 #import "FlippedTableViewCell.h"
+#import "AppDelegate.h"
+
+AppDelegate * appDelegate;
 
 @implementation FlippedTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
+    appDelegate=(AppDelegate*)[UIApplication sharedApplication].delegate;
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -21,6 +26,9 @@
 }
 
 - (IBAction)flipBack:(id)sender {
+    NSInteger tag=[sender tag];
+    [appDelegate.viewMaintainedDict setObject:@"0" forKey:[NSString stringWithFormat:@"%ld",(long)tag]];
+
     [UIView transitionWithView:self.contentView duration:0.6 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [self.contentView insertSubview:_normalView aboveSubview:_flipView];
     } completion:^(BOOL finished) {
@@ -30,6 +38,9 @@
 }
 
 - (IBAction)flip:(id)sender {
+    
+    NSInteger tag=[sender tag];
+    [appDelegate.viewMaintainedDict setObject:@"1" forKey:[NSString stringWithFormat:@"%ld",(long)tag]];
     [UIView transitionWithView:self.contentView duration:0.6 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         [self.contentView insertSubview:_flipView aboveSubview:_normalView];
     } completion:^(BOOL finished) {
